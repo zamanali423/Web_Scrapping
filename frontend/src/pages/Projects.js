@@ -19,7 +19,7 @@ const Projects = () => {
     const getProject = async () => {
       try {
         console.log("user email", email);
-        const res = await fetch(`http://localhost:5000/api/projects/${email}`);
+        const res = await fetch(`https://webscrappingbackend.vercel.app/api/projects/${email}`);
         const projects = await res.json();
         setprojects(projects);
       } catch (error) {

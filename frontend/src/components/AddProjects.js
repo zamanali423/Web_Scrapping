@@ -30,7 +30,7 @@ const AddProjects = ({ setShowAddProject, setprojects }) => {
         date: new Date(),
       };
 
-      const res = await fetch("http://localhost:5000/api/projects/create", {
+      const res = await fetch("https://webscrappingbackend.vercel.app/api/projects/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

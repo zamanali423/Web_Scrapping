@@ -19,7 +19,7 @@ const Provider = ({ children }) => {
     const getUser = async () => {
       try {
         const fetchUser = await fetch(
-          "http://localhost:5000/auth/users/getUser",
+          "https://webscrappingbackend.vercel.app/auth/users/getUser",
           {
             method: "GET",
             headers: {

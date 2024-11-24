@@ -16,7 +16,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000", // Adjust according to your client URL
+    origin: "https://webscrappingunipuler.vercel.app/", // Adjust according to your client URL
     methods: ["GET", "POST"],
   },
 });

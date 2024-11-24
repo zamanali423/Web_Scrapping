@@ -25,6 +25,10 @@ app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ limit: "100mb", extended: true }));
 app.use(cors());
 
+app.get("/",(req,res)=>{
+  res.send("Server Running");
+})
+
 // Routes
 app.use("/api/projects", projectRoutes);
 app.use("/", LeadRouter);

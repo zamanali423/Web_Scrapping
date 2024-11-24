@@ -18,7 +18,7 @@ const Leads = () => {
   useEffect(() => {
     const fetchLeads = async () => {
       try {
-        const res = await fetch("http://localhost:5000/allLeads", {
+        const res = await fetch("https://webscrappingbackend.vercel.app/allLeads", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

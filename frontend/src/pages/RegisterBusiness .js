@@ -71,7 +71,7 @@ const RegisterBusiness = () => {
     e.preventDefault();
     try {
       const res = await fetch(
-        "http://localhost:5000/auth/users/vendor-register",
+        "https://webscrappingbackend.vercel.app/auth/users/vendor-register",
         {
           method: "POST",
           headers: {

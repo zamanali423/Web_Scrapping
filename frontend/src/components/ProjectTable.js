@@ -5,7 +5,7 @@ import io from "socket.io-client";
 import { userContext } from "../context/userContext/userContext";
 import { toast } from "react-toastify";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://webscrappingbackend.vercel.app/");
 
 const ProjectTable = ({ projects, setprojects }) => {
   const [projectStatus, setProjectStatus] = useState({});
@@ -41,7 +41,7 @@ const ProjectTable = ({ projects, setprojects }) => {
   // const handleDelete = async (id) => {
   //   try {
   //     const res = await fetch(
-  //       `http://localhost:5000/api/projects/delete/${id}`,
+  //       `https://webscrappingbackend.vercel.app/api/projects/delete/${id}`,
   //       {
   //         method: "DELETE",
   //       }
@@ -72,7 +72,7 @@ const ProjectTable = ({ projects, setprojects }) => {
         date: new Date(),
       };
 
-      const res = await fetch("http://localhost:5000/api/projects/create", {
+      const res = await fetch("https://webscrappingbackend.vercel.app/api/projects/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -98,7 +98,7 @@ const ProjectTable = ({ projects, setprojects }) => {
     console.log("specific", project.businessCategory);
     try {
       const response = await fetch(
-        `http://localhost:5000/specific-lead/${encodeURIComponent(
+        `https://webscrappingbackend.vercel.app/specific-lead/${encodeURIComponent(
           project.businessCategory
         )}`,
         {
@@ -142,7 +142,7 @@ const ProjectTable = ({ projects, setprojects }) => {
     try {
       console.log("cancel", project.projectId);
       const lead = await fetch(
-        `http://localhost:5000/cancelLead?projectId=${project.projectId}`
+        `https://webscrappingbackend.vercel.app/cancelLead?projectId=${project.projectId}`
       );
       if (!lead.ok) {
         console.log("Failed to cancel project");

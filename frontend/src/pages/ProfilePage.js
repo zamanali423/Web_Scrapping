@@ -30,7 +30,7 @@ const ProfilePage = () => {
       }
 
       const response = await fetch(
-        `http://localhost:5000/auth/users/updateUserProfile/${encodeURIComponent(
+        `https://webscrappingbackend.vercel.app/auth/users/updateUserProfile/${encodeURIComponent(
           user.user?.email
         )}`,
         {

@@ -23,7 +23,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const res = await fetch(
-        "http://localhost:5000/auth/users/admin-register",
+        "https://webscrappingbackend.vercel.app/auth/users/admin-register",
         {
           method: "POST",
           headers: {

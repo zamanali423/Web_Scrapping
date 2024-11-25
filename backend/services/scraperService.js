@@ -12,7 +12,7 @@ async function searchGoogleMaps(project) {
     puppeteerExtra.use(stealthPlugin());
 
     const browser = await puppeteerExtra.launch({
-      headless: false,
+      headless: true,
       executablePath: "",
     });
 

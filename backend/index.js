@@ -14,16 +14,35 @@ const cors = require("cors");
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, {
-  cors: {
-    origin: "https://webscrappingunipuler.vercel.app/", // Adjust according to your client URL
-    methods: ["GET", "POST"],
-  },
-});
 
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ limit: "100mb", extended: true }));
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:3000", // For local development
+  "https://webscrappingunipuler.vercel.app" // Your deployed frontend
+];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true // Enable if you need cookies or authorization headers
+}));
+
+const io = new Server(server, {
+  cors: {
+    origin: allowedOrigins, // Use the same array as above
+    methods: ["GET", "POST"]
+  }
+});
+
 
 app.get("/",(req,res)=>{
   res.send("Server Running");

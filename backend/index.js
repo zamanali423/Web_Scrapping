@@ -45,7 +45,14 @@ const io = new Server(server, {
 
 
 app.get("/",(req,res)=>{
-  res.send("Server Running");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Max-Age", "1800");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS"); 
+  
+  // Send a response to complete the request
+  res.send("CORS headers set successfully!");
 })
 
 // Routes
